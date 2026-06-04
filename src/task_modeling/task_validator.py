@@ -4,7 +4,7 @@
 """
 
 from typing import List, Dict, Any, Tuple
-from task_struct import Task, Target, Condition, Boundary, EndRule
+from .task_struct import Task, Target, Condition, Boundary, EndRule
 
 
 class TaskValidationError(Exception):

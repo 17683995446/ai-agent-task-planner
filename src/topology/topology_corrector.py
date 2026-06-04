@@ -220,9 +220,13 @@ class TopologyCorrector:
                         return True
                 elif neighbor in rec_stack:
                     # 找到循环
-                    idx = path.index(neighbor)
-                    cycle.update(path[idx:])
-                    return True
+                    try:
+                        idx = path.index(neighbor)
+                        cycle.update(path[idx:])
+                        return True
+                    except ValueError:
+                        # neighbor不在path中，继续处理
+                        continue
             
             path.pop()
             rec_stack.remove(node_id)
